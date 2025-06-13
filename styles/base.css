@@ -1,0 +1,255 @@
+/* General body and form styling */
+:root {
+    --primary-color: #1a365d;
+    --secondary-color: #2d3748;
+    --accent-color: #4a5568;
+    --light-accent: #718096;
+    --form-bg: #f7fafc;
+    --fieldset-bg: #ffffff;
+    --legend-bg: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+    --legend-text: #ffffff;
+    --table-header-bg: #edf2f7;
+    --table-even-row: #f8f9fa;
+    --table-hover: #e2e8f0;
+    --border-color: #e2e8f0;
+    --text-color: #2d3748;
+    --input-bg: #ffffff;
+    --input-border: #cbd5e0;
+    --input-focus: #3182ce;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 4px 8px -3px rgba(0, 0, 0, 0.05);
+    --layout-body-margin: 1vw;
+    --layout-form-max-width: 100%;
+    --layout-form-padding: 5px;
+    --layout-fieldset-padding: 3px;
+    --layout-fieldset-margin: 3px;
+    --layout-legend-font-size: 1.1em;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    line-height: 1.6;
+    margin: var(--layout-body-margin);
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    color: var(--text-color);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+form {
+    max-width: var(--layout-form-max-width);
+    margin: auto;
+    padding: var(--layout-form-padding);
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    border-radius: 6px;
+    position: relative;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3182ce 0%, #2b6cb0 50%, #2c5282 100%);
+    border-radius: 12px 12px 0 0;
+}
+
+fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: var(--layout-fieldset-padding);
+    margin-bottom: var(--layout-fieldset-margin);
+    background: var(--fieldset-bg);
+    position: relative;
+    overflow: hidden;
+    box-shadow: none;
+    transition: none;
+}
+
+fieldset:hover {
+    border-color: var(--border-color);
+    box-shadow: none;
+}
+
+legend {
+    font-size: var(--layout-legend-font-size);
+    font-weight: 600;
+    padding: 6px 12px;
+    color: var(--legend-text);
+    background: var(--legend-bg);
+    border: none;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border-radius: 3px;
+    box-shadow: none;
+    position: relative;
+}
+
+legend::after {
+    display: none;
+}
+
+/* Professional legend colors with gradients */
+form > fieldset:first-of-type legend {
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+}
+
+form > fieldset:nth-of-type(2) legend {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}
+
+form > fieldset:nth-of-type(3) legend {
+    background: linear-gradient(135deg, #4a5568 0%, #718096 100%);
+}
+
+form > fieldset:nth-of-type(4) legend {
+    background: linear-gradient(135deg, #2b6cb0 0%, #3182ce 100%);
+}
+
+/* Enhanced transitions for professional feel */
+* {
+    transition: none;
+}
+
+/* Layout-specific styles with enhanced spacing */
+.layout-compact {
+    font-size: 0.9em;
+}
+
+.layout-compact fieldset {
+    border-width: 1px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.layout-compact .form-section-three-column {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.layout-compact .form-section-two-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.layout-wide-screen .form-section-two-column {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.layout-wide-screen .form-section-three-column {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.layout-wide-screen .form-section-four-column {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.layout-narrow fieldset {
+    border-width: 1px;
+    padding: 32px;
+}
+
+.layout-narrow .form-section-three-column,
+.layout-narrow .form-section-four-column {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.layout-minimal fieldset {
+    border: none;
+    box-shadow: var(--shadow-sm);
+    background: #f8f9fa;
+}
+
+.layout-minimal legend {
+    background: transparent;
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 700;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.layout-minimal legend::after {
+    display: none;
+}
+
+@media print {
+    body {
+        margin: 1.5cm;
+        background: white;
+        color: black;
+        font-size: 10pt;
+    }
+
+    form {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    form::before {
+        display: none;
+    }
+
+    /* Hide non-printable elements */
+    .no-print, #hamburger-menu, .sidebar, .overlay, .save-indicator, .context-menu {
+        display: none !important;
+    }
+
+    fieldset {
+        page-break-inside: avoid;
+        border-color: #999;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    legend,
+    form > fieldset:first-of-type legend,
+    form > fieldset:nth-of-type(2) legend,
+    form > fieldset:nth-of-type(3) legend,
+    form > fieldset:nth-of-type(4) legend {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    legend::after {
+        display: none;
+    }
+    
+    textarea {
+        resize: none;
+    }
+
+    /* Improve table printing */
+    table {
+        page-break-inside: auto;
+    }
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    thead {
+        display: table-header-group;
+    }
+    tfoot {
+        display: table-footer-group;
+    }
+
+    /* Ensure backgrounds print for key elements */
+    legend, table th, .section-header td, tr:nth-child(even) td, tfoot td, .partial-total, #weekly-total-time, #weekly-total-km {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
