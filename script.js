@@ -1250,19 +1250,19 @@ function overrideDownloadFunctions() {
         const customObjects = JSON.parse(localStorage.getItem(this.CUSTOM_OBJECTS_KEY) || '[]');
         
         // Get image metadata from IndexedDB
-        const imagesFromDB = await DBManager.getAllData();
-        const imageMetadata = imagesFromDB.map(img => ({
-            filename: img.filename,
-            comment: img.comment,
-            order: img.order
-        }));
-
-        const exportData = {
-            formData: data,
-            customObjects: customObjects,
-            imageAttachments: imageMetadata,
-            exportDate: new Date().toISOString()
-        };
+//        const imagesFromDB = await DBManager.getAllData();
+//        const imageMetadata = imagesFromDB.map(img => ({
+//            filename: img.filename,
+//            comment: img.comment,
+//            order: img.order
+//        }));
+//
+//        const exportData = {
+//            formData: data,
+//            customObjects: customObjects,
+//            imageAttachments: imageMetadata,
+//            exportDate: new Date().toISOString()
+//        };
         
         const dataStr = JSON.stringify(exportData, null, 2);
         const blob = new Blob([dataStr], { type: 'application/json' });
